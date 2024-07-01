@@ -8,18 +8,29 @@ import Post from "../../Pages/Post/Post";
 import Hub from "../Hub/Hub";
 import Switch from "../Switch/Switch";
 import { PostClass } from "../../../Models/Post";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useContext, useState, createContext, useEffect } from "react";
+
 
 type Props = {
     posts:  PostClass[],
     setPosts: Dispatch<SetStateAction<PostClass[]>>,
+    deletePost: (num: number)=>void;
+
 }
 
-function Main({posts, setPosts}: Props): JSX.Element {
+function Main({posts, setPosts, deletePost}: Props): JSX.Element {
+    const [search, setSearch] = useState("");
+    const [searchResult, setSearchResult] = useState<PostClass[]>([]);
+    useEffect(()=>{
+        const filteredSearch = posts.filter((item:PostClass)=>(((item.body).toLowerCase()).includes(search.toLowerCase()))
+        ||  posts.filter((item:PostClass)=>((item.title).toLowerCase().includes(search.toLowerCase())))
+    )
+    setSearchResult(filteredSearch);
+    },[search, posts])
     return (
         <div className="Main">
-            <Hub/>
-            <Switch posts={posts} setPosts={setPosts}/>
+            <Hub search={search} setSearch={setSearch}/>
+            <Switch posts={searchResult} searchResult={searchResult} deletePost={deletePost} setPosts={setPosts}/>
         </div>
     );
 }

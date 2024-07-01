@@ -12,18 +12,17 @@ import PostPage from "../../Pages/PostPage/PostPage";
 type Props = {
     posts: PostClass[],
     setPosts: Dispatch<SetStateAction<PostClass[]>>,
+    deletePost: (num:number)=> void,
+    searchResult: PostClass[]
 }
 
-function Switch({posts, setPosts}: Props): JSX.Element {
-    const deletePost = (value:number)=>{
-        const newArray = posts.filter((item:PostClass)=>(item.id != value))
-        setPosts(newArray);
-    };
+function Switch({posts, setPosts, deletePost, searchResult}: Props): JSX.Element {
+    
     return (
         <div className="Switch">
 			<Routes>
-                <Route path="/home" element={<Home posts={posts} deletePost={deletePost}/>}/>
-                <Route path="/" element={<Home posts={posts} deletePost={deletePost}/>}/>
+                <Route path="/home" element={<Home searchResult={searchResult} posts={posts} deletePost={deletePost}/>}/>
+                <Route path="/" element={<Home searchResult={searchResult} posts={posts} deletePost={deletePost}/>}/>
                 <Route path="/post" element={<Post posts={posts} setPosts={setPosts}/>}/>
                 <Route path="/post/:id" element={<PostPage posts={posts} deletePost={deletePost}/>}/>
                 <Route path="/about" element={<About/>}/>

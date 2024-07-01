@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState} from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import "./App.css";
@@ -17,13 +17,17 @@ function App(): JSX.Element {
             new PostClass(3, "NBA stuff", "DRAFTEES ARRIVE FOR NIGHT ONE!", "21-06-2024 07:45:00"),
             new PostClass(4,"Breaking bad", "See you later Albuquerque! I’ll be in you again someday soon 🤙 50r", "27-06-2024 20:30:33")
         ]);
+        const deletePost = (value:number)=>{
+            const newArray = posts.filter((item:PostClass)=>(item.id != value))
+            setPosts(newArray);
+        };
     return (
         <div className="App">
 			<header>
                 <Header/>
             </header>
             <body>  
-                <Main posts={posts} setPosts={setPosts}/>
+                <Main posts={posts} deletePost={deletePost} setPosts={setPosts}/>
             </body>
             <footer>
                 <Footer/>

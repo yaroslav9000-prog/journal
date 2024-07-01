@@ -1,18 +1,21 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction, useEffect} from "react";
 import { PostClass } from "../../../Models/Post";
 import "./Home.css";
 import { Link, NavLink } from "react-router-dom";
-
 type Props = {
     posts: PostClass[];
     deletePost: (num: number)=>void;
+    searchResult: PostClass[];
 }
 
-function Home({posts, deletePost}:Props): JSX.Element {
+function Home({posts, searchResult, deletePost}:Props): JSX.Element {
     
+    
+
     return (
-        <div className="Home">
-			{posts.map((item:PostClass)=>(
+        <div className="Home">        
+            {!searchResult &&
+            posts.map((item:PostClass)=>(
                 <div key={item.id}>
                 <NavLink style={{color:"black"}} to={`/post/${item.id}`}><h3>{item.title}</h3></NavLink>
                 <h4>{item.date}</h4>
@@ -21,7 +24,9 @@ function Home({posts, deletePost}:Props): JSX.Element {
                 <hr />
                 </div>
             ))}
+            
         </div>
+        
     );
 }
 

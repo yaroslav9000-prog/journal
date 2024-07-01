@@ -21,8 +21,8 @@ function Switch({posts, setPosts, deletePost, searchResult}: Props): JSX.Element
     return (
         <div className="Switch">
 			<Routes>
-                <Route path="/home" element={<Home searchResult={searchResult} posts={posts} deletePost={deletePost}/>}/>
-                <Route path="/" element={<Home searchResult={searchResult} posts={posts} deletePost={deletePost}/>}/>
+                <Route path="/home" element={<Home posts={searchResult} deletePost={deletePost}/>}/>
+                <Route path="/" element={<Home posts={searchResult} deletePost={deletePost}/>}/>
                 <Route path="/post" element={<Post posts={posts} setPosts={setPosts}/>}/>
                 <Route path="/post/:id" element={<PostPage posts={posts} deletePost={deletePost}/>}/>
                 <Route path="/about" element={<About/>}/>

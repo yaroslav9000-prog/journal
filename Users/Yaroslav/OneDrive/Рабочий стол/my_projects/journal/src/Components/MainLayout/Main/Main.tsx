@@ -22,15 +22,17 @@ function Main({posts, setPosts, deletePost}: Props): JSX.Element {
     const [search, setSearch] = useState("");
     const [searchResult, setSearchResult] = useState<PostClass[]>([]);
     useEffect(()=>{
-        const filteredSearch = posts.filter((item:PostClass)=>(((item.body).toLowerCase()).includes(search.toLowerCase()))
-        ||  posts.filter((item:PostClass)=>((item.title).toLowerCase().includes(search.toLowerCase())))
-    )
-    setSearchResult(filteredSearch);
-    },[search, posts])
+        console.log(search);
+        const filteredSearch  = posts.filter((item:PostClass)=>(((item.body).toLowerCase()).includes(search.toLowerCase())
+        ||  (item.title).toLowerCase().includes(search.toLowerCase())))
+    
+    setSearchResult(filteredSearch.reverse());
+    console.log(filteredSearch);
+},[search])
     return (
         <div className="Main">
             <Hub search={search} setSearch={setSearch}/>
-            <Switch posts={searchResult} searchResult={searchResult} deletePost={deletePost} setPosts={setPosts}/>
+            <Switch posts={posts} searchResult={searchResult} deletePost={deletePost} setPosts={setPosts}/>
         </div>
     );
 }

@@ -28,7 +28,8 @@ function Main({posts, setPosts, deletePost}: Props): JSX.Element {
     
     setSearchResult(filteredSearch.reverse());
     console.log(filteredSearch);
-},[search])
+    
+},[search,posts])
     return (
         <div className="Main">
             <Hub search={search} setSearch={setSearch}/>

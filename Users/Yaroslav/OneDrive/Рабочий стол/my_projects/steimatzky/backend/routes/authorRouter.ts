@@ -2,7 +2,9 @@ import express, {Request, Response, NextFunction} from "express";
 import { getAllAuthors } from "../Controllers/authorsController";
 const authorsRouter = express.Router();
 
-authorsRouter.get("/authors", async(req: Request, res: Response)=>{
+authorsRouter.route("/api/authors")
+
+authorsRouter.get("/api/authors", async(req: Request, res: Response, next: NextFunction)=>{
     //res.status(200).json(getAllAuthors)
     try{
         const authors = await getAllAuthors();
@@ -10,6 +12,7 @@ authorsRouter.get("/authors", async(req: Request, res: Response)=>{
     }catch(err){
         console.log(err);
     }
+    next();
 });
 
 

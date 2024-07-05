@@ -1,0 +1,18 @@
+.addBook {
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* padding-top: 2em; */
+    text-align: center;
+}
+.addBook > form > input{
+        margin-bottom: 1.5em;
+        margin-left: 1em;
+        margin-right: 1em;
+}
+form{
+    border: solid black 1px;
+    width: 20em;
+    margin-left: auto;
+    margin-right: auto;
+}

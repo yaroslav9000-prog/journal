@@ -1,26 +1,60 @@
-import { useState} from "react";
+import { useEffect, useState} from "react";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import "./App.css";
 import { PostClass } from "../../../Models/Post";
 import Main from "../Main/Main";
+import api from "../../../api/posts";
+import { format } from "date-fns";
 
 
 
 function App(): JSX.Element {
-    const [posts, setPosts] = useState<PostClass[]>([
-        new PostClass(1, "Stolen chocolate",`
-                I hate chocolate. Always hated it. When people asked me why I explained that for me it’s like eating slugs. The chocolate just gets slimey in your mouth. Slimey sugar.
-    But then I moved to Japan. Chocolate here is so much tastier. I love it. I became a big chocolate lover 🥹 🍫
-            `, "22-6-2024 15:30:20"),
-            new PostClass(2, "A lot of shirts", "It can get expensive being a Nets fan", "22-6-2024 12:15:12"),
-            new PostClass(3, "NBA stuff", "DRAFTEES ARRIVE FOR NIGHT ONE!", "21-06-2024 07:45:00"),
-            new PostClass(4,"Breaking bad", "See you later Albuquerque! I’ll be in you again someday soon 🤙 50r", "27-06-2024 20:30:33")
-        ]);
-        const deletePost = (value:number)=>{
+    const [posts, setPosts] = useState<PostClass[]>([]);
+        // server activation command for axios server
+        // npx json-server -p 4200 -w data/db.json
+        useEffect(()=>{
+            const fetchPosts = async ()=>{
+                try{
+                    const response = await api.get("/posts");
+                    const postClassArray = response.data.map((item: PostClass)=>(
+                        new PostClass(item.id, item.title, item.body, item.date)
+                    ))
+                    
+                    setPosts([...postClassArray]);
+                    console.log(posts);
+                }catch(err: any){
+                    if(err.response){
+                    console.log(err.response.data);
+                    console.log(err.response.status);
+                    console.log(err.response.headers);
+                    }else{
+                        console.log(`Error message: ${err.message}`);
+                    }
+                }
+            }
+            fetchPosts();
+        },[])
+
+
+
+    const deletePost = async (value:number)=>{
+            try{
+            await api.delete(`/posts/${value}`)
             const newArray = posts.filter((item:PostClass)=>(item.id != value))
             setPosts(newArray);
+            }catch(err:any){
+                if(err.response){
+                    console.log(err.response.data);
+                    console.log(err.response.status);
+                    console.log(err.response.headers);
+                }else{
+                    console.log(`Error message: ${err.message} ${format(new Date, "HH:mm:ss")}`);
+                }
+            }
         };
+
+        
     return (
         <div className="App">
 			<header>

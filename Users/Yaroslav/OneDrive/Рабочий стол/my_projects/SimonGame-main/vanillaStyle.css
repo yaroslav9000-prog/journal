@@ -1,0 +1,91 @@
+@font-face {
+    font-family: lobster;
+    src: url(./fonts/Lobster-Regular.ttf);
+}
+*{
+    text-align: center;
+    font-family: lobster;
+}
+body{
+    background-color: rgb(69, 71, 96);
+}
+h2{
+    position: absolute;
+    color: aliceblue;
+    left: 95px;
+    top: 30px;
+}
+#game{
+    display: grid;
+    grid-template-columns: 3;
+    grid-template-rows: 3;
+    width: 450px;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+.button{
+    border-radius: 50%;
+    border: 1px solid black;
+    z-index: 0;
+}
+#top-left{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    border-radius: 450px 0 0 0;
+    /* border: 5px solid black; */
+    background-color: red;
+}
+#top-right{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2; 
+    border-radius: 0 450px 0 0;
+    background-color: green;
+}
+#bot-left{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border-radius: 0 0 0 450px;
+    background-color: yellow;
+}
+#bot-right{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border-radius: 0 0 450px 0;
+    background-color: blue;
+}
+#center{
+    position: absolute;
+    background-color: black;
+    border-radius: 50%;
+    border: black 5px solid;
+    height: 250px;
+    width: 250px;
+    margin-left: 95px;
+    margin-top: 95px;
+    z-index: 1;  
+    color: aliceblue;
+}
+.button:hover{
+    
+    border:  aliceblue solid;
+}
+@keyframes flash{
+    0%{}
+    100%{background-color: white}
+    
+}
+
+.flash{
+    animation: flash;
+    animation-duration: 200ms;
+}

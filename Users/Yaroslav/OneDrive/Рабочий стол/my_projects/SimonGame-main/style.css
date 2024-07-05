@@ -1,0 +1,41 @@
+@font-face {
+    font-family: Lobster ;
+    src: url(./fonts/Lobster-Regular.ttf);
+}
+body{
+    text-align: center;
+}
+#app{
+    display: grid;
+    width: 450px;
+    height: 450px;
+    grid-template-columns: 3;
+    grid-template-rows: 3;
+    gap: 5px;
+    margin-left:auto;
+    margin-right: auto;
+}
+.square{
+    border: solid 5px black;
+    border-radius: 20px;
+}
+#red{
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+h1{
+    font-family: Lobster;
+}
+#green{
+    background-color: green;
+}
+#blue{
+    background-color: blue;
+}
+#yellow{
+    background-color: yellow;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+

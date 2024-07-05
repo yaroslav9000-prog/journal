@@ -3,6 +3,7 @@ import "./Post.css";
 import { PostClass } from "../../../Models/Post";
 //import { format } from "util";
 import { compareAsc, format } from "date-fns";
+import api from "../../../api/posts";
 type Props = {
     posts: PostClass[];
     setPosts:  Dispatch<SetStateAction<PostClass[]>>;
@@ -22,12 +23,19 @@ function Post({posts, setPosts}: Props): JSX.Element {
     const updateBody = (data:any)=>{
         setBody(data);
     }
-    const updateList = (title: string, body: string, e:any) =>{
+    const updateList = async (title: string, body: string, e:any) =>{
         e.preventDefault();
-        const currentDate = format(new Date(), "dd-MM-yyyy hh:MM:ss");
-        const currentId = posts[posts.length -1].id + 1;
-        const newItem = new PostClass(currentId, title, body, currentDate);
-        setPosts([...posts, newItem]);
+        try{
+            const currentDate = format(new Date(), "dd-MM-yyyy hh:MM:ss");
+            const currentId = +posts[posts.length -1].id + 1;
+            const newItem = new PostClass(currentId, title, body, currentDate);
+            await api.post("posts",newItem);
+            setPosts([...posts, newItem]);
+        }catch(err:any){
+            console.log(err.response.data);
+            console.log(err.response.status);
+            console.log(err.response.headers);
+        }
     }
     
     return (

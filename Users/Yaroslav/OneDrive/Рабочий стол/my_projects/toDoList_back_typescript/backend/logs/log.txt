@@ -1,0 +1,9 @@
+Request: GET, URL: / Time: 2024-05-14T11:10:06.673Z 
+Request: GET, URL: / Time: 2024-05-14T11:10:10.579Z 
+Request: GET, URL: / Time: 2024-05-14T11:13:24.253Z 
+Request: GET, URL: / Time: 2024-05-14T11:14:58.327Z 
+Request: GET, URL: / Time: 2024-05-14T11:15:59.373Z 
+Request: GET, URL: /favicon.ico Time: 2024-05-14T11:15:59.484Z 
+Request: GET, URL: /car/6225433 Time: 2024-05-14T11:16:07.475Z 
+Request: GET, URL: / Time: 2024-05-14T11:16:32.662Z 
+Request: GET, URL: /chrome.css.map Time: 2024-05-14T11:16:32.710Z 

@@ -12,10 +12,13 @@ type Props = {
 function Home({posts, deletePost}:Props): JSX.Element {
     
     
-
+    useEffect(()=>{
+        console.log("pp");
+        console.log(posts)
+    },[])
     return (
         <div className="Home">        
-            {posts.map((item:PostClass)=>( <PostBody item={item} deletePost={deletePost}/>))}
+            {posts.map((item:PostClass, index)=>( <PostBody key={index} item={item} deletePost={deletePost}/>))}
             
         </div>
         

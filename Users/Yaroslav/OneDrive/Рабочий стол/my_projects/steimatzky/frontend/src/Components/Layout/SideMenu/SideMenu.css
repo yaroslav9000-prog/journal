@@ -1,0 +1,15 @@
+.SideMenu {
+	font-size: larger;
+    border-right: 1px solid black;
+    
+}
+ul{
+    list-style: none;
+}
+
+
+li{
+    padding-bottom: 1em;
+    font-size: larger;
+    font-weight: 500;
+}

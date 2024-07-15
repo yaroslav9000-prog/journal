@@ -1,5 +1,17 @@
+<div>
+  <ul>
+  @for(ticket of tickets; track ticket.id){
+    <li>
+    <app-ticket [ticket]="ticket"/>
+  </li>
+  }@empty{
+    <p>No tickets assigned yet</p>
+  }
+</ul>
+</div>
 <div id="new-ticket">
-  <app-new-ticket/>
+  <app-new-ticket (addTicket)="addNewTicket($event)"/>
+
 </div>
 
 

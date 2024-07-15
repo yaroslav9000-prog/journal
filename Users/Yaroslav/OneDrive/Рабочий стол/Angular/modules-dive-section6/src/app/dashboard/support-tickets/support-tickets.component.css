@@ -1,0 +1,33 @@
+#support-tickets {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  #support-tickets ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 15rem;
+  }
+  
+  #support-tickets li {
+    margin: 0.5rem 0;
+  }
+  
+  #support-tickets p {
+    margin: 0;
+    color: #4f4b53;
+  }
+  
+  #support-tickets h2 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #38343c;
+  }
+  
+  @media (min-width: 768px) {
+    #support-tickets {
+      flex-direction: row;
+    }
+  }

@@ -1,0 +1,10 @@
+<h1>Two way binding with angular</h1>
+
+
+<form action="">
+  <label for="width">Width</label>
+  <input id="width" name="width" type="number" step="1.0" [style.value]="" (change)="onWidthChange()" >
+  <label for="height">Height</label>
+  <input id="height" name="height" type="number" step="1.0" [style.value]="" (change)="onHeightChange()" >
+</form>
+<app-rect [(size)]="rectangleSize"></app-rect>

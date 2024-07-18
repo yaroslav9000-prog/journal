@@ -12,7 +12,8 @@ import { TaskItemComponent } from './task-item/task-item.component';
 })
 export class TasksListComponent {
   selectedFilter = signal<string>('all');
-  TasksService = inject(TasksService).tasks;
+  tasks = inject(TasksService).tasks;
+  
 
   onChangeTasksFilter(filter: string) {
     this.selectedFilter.set(filter);

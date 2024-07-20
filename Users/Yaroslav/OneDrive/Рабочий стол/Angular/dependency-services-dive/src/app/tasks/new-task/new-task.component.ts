@@ -1,4 +1,5 @@
-import { Component, ElementRef, inject, signal, viewChild } from '@angular/core';
+import { TasksServiceToken } from './../../../main';
+import { Component, ElementRef, Inject, inject, signal, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TasksService } from '../tasks.service';
 @Component({
@@ -10,12 +11,14 @@ import { TasksService } from '../tasks.service';
 })
 export class NewTaskComponent {
   private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
-  tasksService = inject(TasksService);
+  constructor(@Inject(TasksServiceToken) private TasksService: TasksService){
+
+  }
   title = signal('');
   descriptiton = signal('');
   onAddTask(title: string, description: string) {
-    this.tasksService.addTask(title, description);
-    console.log(this.tasksService)
+    this.TasksService.addTask(title, description);
+    console.log(this.TasksService)
     this.formEl()?.nativeElement.reset();
   }
 }

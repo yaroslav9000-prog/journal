@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction, useEffect } from "react";
 import { PostClass } from "../../../Models/Post";
 import "./PostPage.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 type Props = {
     posts: PostClass[];
@@ -18,7 +18,9 @@ function PostPage({posts, deletePost}: Props): JSX.Element {
                 <h3>{myPost[0].title}</h3>
                 <h4>{myPost[0].date}</h4>
                 <p>{`${myPost[0].body}`}</p>
+                <Link to="/home">
                 <button style={{backgroundColor:"red"}} onClick={()=>deletePost(myPost[0].id)}>delete</button>
+                </Link>
                 <hr />
                 </div>
             

@@ -1,28 +1,16 @@
 {
   "posts": [
     {
-      "id": "1",
-      "title": "Stolen chocolate",
-      "body": "I hate chocolate. Always hated it. When people asked me why I explained that for me it’s like eating slugs. The chocolate just gets slimey in your mouth. Slimey sugar.But then I moved to Japan. Chocolate here is so much tastier. I love it. I became a big chocolate lover 🥹 🍫",
-      "date": "22-6-2024 15:30:20"
+      "id": 1,
+      "title": "post",
+      "body": "+posts[posts.length -1].id + 1 +posts[posts.length -1].id + 1 +posts[posts.length -1].id + 1 ",
+      "date": "28-07-2024 06:07:13"
     },
     {
-      "id": "2",
-      "title": "A lot of shirts",
-      "body": "It can get expensive being a Nets fan",
-      "date": "22-6-2024 12:15:12"
-    },
-    {
-      "id": "3",
-      "title": "NBA stuff",
-      "body": "DRAFTEES ARRIVE FOR NIGHT ONE!",
-      "date": "21-06-2024 07:45:00"
-    },
-    {
-      "id": 4,
-      "title": "выдуманные принципы",
-      "body": "Смотрю ленту. Через один пост \"почему мужчины перестали проявлять инициативу/ знакомится на улице, в общественных местах?! \".\nВы не задумывались, что мужчина не дожен прыгать и бегать за вами вечно, чтобы познакомиться? Почему хоть раз в жизни вы не можете пойти против своих принципов, выдуманных правил и подойти на улице первой или познакомится в сети, написать первой, если вам человек действительно интересен? Что случится? Луна восьмёркой станет? Вы поседеете? Вы ничего не теряете.",
-      "date": "02-07-2024 08:07:25"
+      "id": 2,
+      "title": "Second post",
+      "body": "יואב גלנט ביקר במג'דל שמס וסייר בזירת האסון: \"אירוע קשה מאוד, כל כך כואב על הילדים האלה. חיזבאללה אחראים לזה והם ישלמו את המחיר\"\nבדבריו, גלנט לא התייחס לאחריות של מדינת לבנון לירי משטחה ולא איים לפגוע בה.\nצילום: אריאל חרמוני - משרד הביטחון",
+      "date": "28-07-2024 06:07:49"
     }
   ]
 }

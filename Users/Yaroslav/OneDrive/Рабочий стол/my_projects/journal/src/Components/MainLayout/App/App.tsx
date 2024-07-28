@@ -6,6 +6,7 @@ import { PostClass } from "../../../Models/Post";
 import Main from "../Main/Main";
 import api from "../../../api/posts";
 import { format } from "date-fns";
+import { Navigate } from "react-router-dom";
 
 
 

@@ -12,6 +12,8 @@ import { Navigate } from "react-router-dom";
 
 function App(): JSX.Element {
     const [posts, setPosts] = useState<PostClass[]>([]);
+    const [editTitle, setEditTitle] = useState();
+    const [editText, setEditText] = useState();
         // server activation command for axios server
         // npx json-server -p 4200 -w data/db.json
         useEffect(()=>{
@@ -38,6 +40,9 @@ function App(): JSX.Element {
         },[])
 
 
+    const handleEdit = async (id: number) =>{
+        const editedPost: PostClass = new PostClass(id, ) 
+    }
 
     const deletePost = async (value:number)=>{
             try{

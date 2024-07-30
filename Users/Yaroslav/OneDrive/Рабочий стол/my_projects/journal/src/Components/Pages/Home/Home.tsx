@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect} from "react";
+import { Dispatch, SetStateAction, useEffect, useState} from "react";
 import { PostClass } from "../../../Models/Post";
 import "./Home.css";
 import { Link, NavLink } from "react-router-dom";
@@ -11,7 +11,7 @@ type Props = {
 
 function Home({posts, deletePost}:Props): JSX.Element {
     
-    
+
     useEffect(()=>{
         console.log("pp");
         console.log(posts)

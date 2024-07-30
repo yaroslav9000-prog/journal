@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { PostClass } from "../../../Models/Post";
 import "./PostPage.css";
 import { Link, useParams } from "react-router-dom";
@@ -10,6 +10,10 @@ type Props = {
 function PostPage({posts, deletePost}: Props): JSX.Element {
     const {id} = useParams();
     const myPost = posts.filter((item:PostClass)=>item.id.toString() == id)
+    const [text, setText] = useState();
+    const handleEdit = async (id: number)=>{
+        
+    }
     
     return (
         <div className="PostPage">
@@ -21,6 +25,7 @@ function PostPage({posts, deletePost}: Props): JSX.Element {
                 <Link to="/home">
                 <button style={{backgroundColor:"red"}} onClick={()=>deletePost(myPost[0].id)}>delete</button>
                 </Link>
+                <button style={{backgroundColor:"blue"}} >edit</button>
                 <hr />
                 </div>
             
